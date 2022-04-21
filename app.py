@@ -73,7 +73,7 @@ def services():
 def aboutUs():
     return render_template('aboutUs.html')    
 
-@app.route("/login", )
+@app.route("/login")
 def login():
     return render_template('login.html')   
 database = {'akshit':'123654','vedant':'654789','shweta':'789654'}
