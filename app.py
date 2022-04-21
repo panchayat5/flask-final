@@ -75,7 +75,7 @@ def aboutUs():
 
 @app.route("/login")
 def login():
-    return render_template('login.html')   
+    return render_template('Login.html')   
 database = {'akshit':'123654','vedant':'654789','shweta':'789654'}
 
 @app.route('/dashboard', methods=['POST', 'GET'] )
@@ -94,10 +94,10 @@ def dashboard():
     #     return render_template('login.html')
 
         if name1 not in database:
-            return render_template('login.html', info ='Invalid User')
+            return render_template('Login.html', info ='Invalid User')
         else:
             if database[name1]!=pwd:
-                return render_template('login.html', info = "Invalid Password")
+                return render_template('Login.html', info = "Invalid Password")
             else:
                 return render_template('dashboard.html', name = name1, Q1 ='static/graph_Img/Total_Sales/Month.png', T2 = 'static/graph_Img/Total_Sales/City.png', Q3 = 'static/graph_Img/Total_Sales/Time.png', 
                 Q4 = 'static/graph_Img/Total_Sales/Product.png' ,Q5 = 'static/graph_Img/Total_Sales/Customer.png',Q6 = 'static/graph_Img/Total_Sales/Payment.png' , ProductLine = bpl, BestMonth = bms, BestCity = bcs, Member = mvn, Payment = ppm, SalesByH = sbh_s)
