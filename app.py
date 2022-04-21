@@ -5,7 +5,7 @@ from pip import main
 # from second1 import second1
 from sqlalchemy import false, true
 from flask_mail import Mail, Message
-from config import mail_username, mail_password login
+from config import mail_username, mail_password
 from sqlalchemy import true
 import os
 from flask_sqlalchemy import SQLAlchemy
