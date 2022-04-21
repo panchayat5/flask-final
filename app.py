@@ -5,7 +5,7 @@ from pip import main
 # from second1 import second1
 from sqlalchemy import false, true
 from flask_mail import Mail, Message
-# from config import mail_username, mail_password
+from config import mail_username, mail_password login
 from sqlalchemy import true
 import os
 from flask_sqlalchemy import SQLAlchemy
@@ -34,34 +34,34 @@ Bang = pd.read_csv('static/csv/Bangalore Sales_Analysis.csv')
 # app.register_blueprint(second1,url_prefix="")
 
 
-# app.config['MAIL_SERVER'] = "smtp-mail.outlook.com"
-# app.config['MAIL_PORT'] = 587
-# app.config['MAIL_USE_TLS'] = True
-# app.config['MAIL_USE_SSl'] = False
-# app.config['MAIL_USERNAME'] = mail_username
-# app.config['MAIL_PASSWORD'] = mail_password
+app.config['MAIL_SERVER'] = "smtp-mail.outlook.com"
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USE_SSl'] = False
+app.config['MAIL_USERNAME'] = mail_username
+app.config['MAIL_PASSWORD'] = mail_password
 
 
-# mail = Mail(app)
+mail = Mail(app)
 
 @app.route("/", methods = ['GET'])
 @app.route("/index", methods = ['GET'])
 def HomePage():
     return render_template('index.html')   
 
-# @app.route("/contactForm", methods = ['GET' , 'POST'])
-# def contactForm():
-#     if request.method == "POST":
-#         name = request.form.get('Name')
-#         email = request.form.get('Email')
-#         phone = request.form.get('Phone')
-#         message = request.form.get('Message')
+@app.route("/contactForm", methods = ['GET' , 'POST'])
+def contactForm():
+    if request.method == "POST":
+        name = request.form.get('Name')
+        email = request.form.get('Email')
+        phone = request.form.get('Phone')
+        message = request.form.get('Message')
 
-#         msg = Message(subject=f"Mail from{name}", body=f"Name: {name}\nE-Mail: {email}\nPhone: {phone}\n\n\n{message}", sender=mail_username, recipients=['oppanchayat5@gmail.com'])
-#         mail.send(msg)
-#         return render_template("contactForm.html", success=True)
+        msg = Message(subject=f"Mail from{name}", body=f"Name: {name}\nE-Mail: {email}\nPhone: {phone}\n\n\n{message}", sender=mail_username, recipients=['oppanchayat5@gmail.com'])
+        mail.send(msg)
+        return render_template("contactForm.html", success=True)
 
-#     return render_template('contactForm.html')
+    return render_template('contactForm.html')
 
 
 @app.route("/services")
