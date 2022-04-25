@@ -2,7 +2,7 @@
 from flask import Flask, render_template, request
 from pip import main
 # from second import second
-# from second1 import second1
+from second1 import second1
 from sqlalchemy import false, true
 from flask_mail import Mail, Message
 from config import mail_username, mail_password
@@ -31,7 +31,7 @@ Del = pd.read_csv('static/csv/Delhi Sales_Analysis.csv')
 Bang = pd.read_csv('static/csv/Bangalore Sales_Analysis.csv') 
 
 # app.register_blueprint(second,url_prefix="")
-# app.register_blueprint(second1,url_prefix="")
+app.register_blueprint(second1,url_prefix="")
 
 
 app.config['MAIL_SERVER'] = "smtp-mail.outlook.com"
